@@ -1,0 +1,82 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="megalopolis.city_list">
+      <field name="name">megalopolis city list</field>
+      <field name="model">megalopolis.city</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="level"/>
+<!--          <field name="num_people"/>-->
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="megalopolis.action_city_window">
+      <field name="name">megalopolis city window</field>
+      <field name="res_model">megalopolis.city</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="megalopolis.action_building_window">
+      <field name="name">megalopolis building window</field>
+      <field name="res_model">megalopolis.building</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="megalopolis.action_crop_window">
+      <field name="name">megalopolis crop window</field>
+      <field name="res_model">megalopolis.crop</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="megalopolis.action_resources_window">
+      <field name="name">megalopolis resources window</field>
+      <field name="res_model">megalopolis.resources</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="megalopolis.action_naturalresources_window">
+      <field name="name">megalopolis naturalresources window</field>
+      <field name="res_model">megalopolis.naturalresources</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="school.action_server">
+      <field name="name">school server</field>
+      <field name="model_id" ref="model_school_school"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+    <menuitem name="Megalopolis" id="megalopolis.menu_root"/>
+    <!-- menu categories -->
+    <menuitem name="Your city" id="megalopolis.menu_1" parent="megalopolis.menu_root"/>
+    <!-- actions -->
+    <menuitem name="Megalopolis" id="megalopolis.menu_city_list" parent="megalopolis.menu_1"
+              action="megalopolis.action_city_window"/>
+
+    <menuitem name="Buildings" id="megalopolis.menu_building_list" parent="megalopolis.menu_city_list"
+              action="megalopolis.action_building_window"/>
+    <menuitem name="Crops" id="megalopolis.menu_crop_list" parent="megalopolis.menu_city_list"
+              action="megalopolis.action_crop_window"/>
+    <menuitem name="Resources" id="megalopolis.menu_resources_list" parent="megalopolis.menu_city_list"
+              action="megalopolis.action_resources_window"/>
+    <menuitem name="Natural Resources" id="megalopolis.menu_naturalresources_list" parent="megalopolis.menu_city_list"
+              action="megalopolis.action_naturalresources_window"/>
+  </data>
+</odoo>
