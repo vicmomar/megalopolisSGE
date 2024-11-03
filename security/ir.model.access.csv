@@ -1,4 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_megalopolis_player,megalopolis.player,model_megalopolis_player,base.group_user,1,1,1,1
 access_megalopolis_city,megalopolis.city,model_megalopolis_city,base.group_user,1,1,1,1
 access_megalopolis_building,megalopolis.building,model_megalopolis_building,base.group_user,1,1,1,1
 access_megalopolis_crop,megalopolis.crop,model_megalopolis_crop,base.group_user,1,1,1,1

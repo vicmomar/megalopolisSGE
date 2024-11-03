@@ -2,6 +2,16 @@
 
 from odoo import models, fields, api
 
+class player(models.Model):
+     _name = 'megalopolis.player'
+     _description = 'megalopolis.player'
+
+     name = fields.Char(string='Nom', readonly=False, required=True, help='El nom de la city')
+     description = fields.Text()
+
+     image_pl = fields.Image()
+     my_city = fields.Many2one(comodel_name='megalopolis.city')
+
 class city(models.Model):
      _name = 'megalopolis.city'
      _description = 'megalopolis.city'
@@ -9,6 +19,7 @@ class city(models.Model):
      name = fields.Char(string='Nom', readonly=False, required=True, help='El nom de la city')
      description = fields.Text()
      level = fields.Integer()
+
      buildings = fields.One2many(string='Buildings',
                                  comodel_name='megalopolis.building',
                                  inverse_name='city') #, ondelete='set null', help='La classe on va')

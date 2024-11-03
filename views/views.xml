@@ -2,6 +2,18 @@
   <data>
     <!-- explicit list view definition -->
 
+    <record model="ir.ui.view" id="megalopolis.player_list">
+      <field name="name">megalopolis player list</field>
+      <field name="model">megalopolis.player</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="my_city"/>
+          <field name="image_pl"/>
+        </tree>
+      </field>
+    </record>
+
     <record model="ir.ui.view" id="megalopolis.city_list">
       <field name="name">megalopolis city list</field>
       <field name="model">megalopolis.city</field>
@@ -16,6 +28,12 @@
 
 
     <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="megalopolis.action_player_window">
+      <field name="name">megalopolis player window</field>
+      <field name="res_model">megalopolis.player</field>
+      <field name="view_mode">tree,form</field>
+    </record>
 
     <record model="ir.actions.act_window" id="megalopolis.action_city_window">
       <field name="name">megalopolis city window</field>
@@ -65,11 +83,13 @@
     <!-- Top menu item -->
     <menuitem name="Megalopolis" id="megalopolis.menu_root"/>
     <!-- menu categories -->
+    <menuitem name="Player" id="megalopolis.player" parent="megalopolis.menu_root"/>
     <menuitem name="Your city" id="megalopolis.menu_1" parent="megalopolis.menu_root"/>
     <!-- actions -->
+    <menuitem name="Player" id="megalopolis.menu_player_list" parent="megalopolis.player"
+              action="megalopolis.action_player_window"/>
     <menuitem name="Megalopolis" id="megalopolis.menu_city_list" parent="megalopolis.menu_1"
               action="megalopolis.action_city_window"/>
-
     <menuitem name="Buildings" id="megalopolis.menu_building_list" parent="megalopolis.menu_city_list"
               action="megalopolis.action_building_window"/>
     <menuitem name="Crops" id="megalopolis.menu_crop_list" parent="megalopolis.menu_city_list"
