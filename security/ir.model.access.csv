@@ -4,3 +4,4 @@ access_megalopolis_building,megalopolis.building,model_megalopolis_building,base
 access_megalopolis_crop,megalopolis.crop,model_megalopolis_crop,base.group_user,1,1,1,1
 access_megalopolis_resources,megalopolis.resources,model_megalopolis_resources,base.group_user,1,1,1,1
 access_megalopolis_naturalresources,megalopolis.naturalresources,model_megalopolis_naturalresources,base.group_user,1,1,1,1
+
